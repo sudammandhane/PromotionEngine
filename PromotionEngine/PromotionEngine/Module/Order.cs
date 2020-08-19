@@ -4,8 +4,9 @@ namespace PromotionEngine.Module
 {
     public class Order
     {
+        public static List<Promotion> Promotions { get; set; }
         public List<Product> Products { get; set; }
-
+        
         public Order(List<Product> products)
         {
             Products = products;
