@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PromotionEngine.Module
@@ -11,6 +12,35 @@ namespace PromotionEngine.Module
         public Order(List<Product> products)
         {
             Products = products;
+
+        }
+
+        static Order()
+        {
+            //Create list of promotions
+            Promotions = new List<Promotion>();
+
+            //Adding First Promotion If A * 3 Then Price = 130
+            Dictionary<String, int> prodInfo = new Dictionary<String, int>
+            {
+                { "A", 3 }
+            };
+            Promotions.Add(new Promotion(prodInfo, 130));
+
+            //Adding Second Promotion If B * 2 Then Price = 45
+            prodInfo = new Dictionary<String, int>
+            {
+                { "B", 2 }
+            };
+            Promotions.Add(new Promotion(prodInfo, 45));
+
+            //Adding Third Promotion If C + D Then Price = 30
+            prodInfo = new Dictionary<String, int>
+            {
+                { "C", 1 },
+                { "D", 1 }
+            };
+            Promotions.Add(new Promotion(prodInfo, 30));
         }
 
         /// <summary>
